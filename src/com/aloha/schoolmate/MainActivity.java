@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.lody.welike.ui.WelikeToast;
 
 public class MainActivity extends Activity {
 
@@ -19,8 +22,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		btn_Query = (Button) findViewById(R.id.query);
-		btn_Spinner = (Spinner) findViewById(R.id.spinner);
+
 		init();
 	}
 
@@ -29,16 +31,21 @@ public class MainActivity extends Activity {
 	 */
 
 	private void init() {
+		btn_Query = (Button) findViewById(R.id.submit);
+		btn_Spinner = (Spinner) findViewById(R.id.spinner);
 		btn_Query.setOnClickListener(onClickListener);
 		btn_Spinner.setOnItemSelectedListener(onItemSelectedListener);
+		String[] mItem = getResources().getStringArray(R.array.selector_years);
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
+				android.R.layout.simple_spinner_dropdown_item, mItem);
+		btn_Spinner.setAdapter(spinnerAdapter);
 	}
 
 	OnClickListener onClickListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-
+			System.out.println(">>>>>>>>>>>>>>>>>");
 		}
 	};
 
@@ -47,8 +54,8 @@ public class MainActivity extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
 				int position, long id) {
-			// TODO Auto-generated method stub
-
+			String str = parent.getItemAtPosition(position).toString();
+			WelikeToast.toast("ÄúÑ¡ÔñÁË" + str + "Äê");
 		}
 
 		@Override
