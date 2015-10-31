@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 	}
 
 	/*
-	 * ³õÊ¼»¯×é¼ş
+	 * åˆå§‹åŒ–
 	 */
 
 	private void init() {
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 		public void onItemSelected(AdapterView<?> parent, View view,
 				int position, long id) {
 			String str = parent.getItemAtPosition(position).toString();
-			WelikeToast.toast("ÄúÑ¡ÔñÁË" + str + "Äê");
+			WelikeToast.toast("æ‚¨é€‰æ‹©äº†" + str + "å¹´");
 		}
 
 		@Override
